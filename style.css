@@ -4,3 +4,38 @@ html {
     font-size: 18px;
     font-family: 'Roboto', sans-serif;
 }
+
+h1 {
+    text-align: center;
+}
+#canvas {
+    margin: auto;
+    width: 500px;
+    aspect-ratio: 1 / 1;
+    background-color: white;
+    display: flex;
+    gap: 0px;
+}
+
+.column {
+    float: left;
+    display: flex;
+    flex-direction: column;
+    flex-grow: 1;
+}
+
+.cell {
+    border: 1px solid red;
+    flex-grow: 1;
+}
+
+.cell:hover {
+    background-color: yellow;
+}
+
+#options {
+    display: flex;
+    margin: 10px;
+    justify-content: center;
+    gap: 10px;
+}
