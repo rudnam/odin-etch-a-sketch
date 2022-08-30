@@ -1,7 +1,18 @@
 var SIZE = 16;
+var isMouseDown = false;
 const canvas = document.querySelector('#canvas');
 const reset = document.querySelector('#reset');
 const resize = document.querySelector('#resize');
+
+document.body.onmousedown = function(e) {
+    e.preventDefault();
+    isMouseDown = true;
+    console.log('down')
+}
+document.body.onmouseup = function() {
+    isMouseDown = false;
+    console.log('up');
+}
 
 for (let i = 0; i < SIZE; i++) {
     var column = document.createElement("div");
@@ -15,9 +26,10 @@ for (let i = 0; i < SIZE; i++) {
     }
 }
 
-
 function paintBlack(e) {
-    e.target.style.backgroundColor="black";
+    if (isMouseDown) {
+        e.target.style.backgroundColor="black";
+    }
 }
 
 function resetCanvas() {
@@ -41,12 +53,11 @@ function resizeCanvas() {
             for (let j = 0; j < SIZE; j++) {
                 var cell = document.createElement("div");
                 cell.classList.add("cell");
-                cell.addEventListener("mouseenter", paintBlack);
+                cell.addEventListener("mouseover", paintBlack);
                 column.appendChild(cell);
             }
         }
-    }
-    
+    } 
 }
 
 reset.addEventListener('click', resetCanvas);
