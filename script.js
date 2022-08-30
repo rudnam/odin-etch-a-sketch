@@ -5,7 +5,9 @@ const reset = document.querySelector('#reset');
 const resize = document.querySelector('#resize');
 
 document.body.onmousedown = function(e) {
-    e.preventDefault();
+    if (canvas.contains(e.target)) {
+        e.preventDefault();
+    }
     isMouseDown = true;
     console.log('down')
 }
@@ -21,14 +23,19 @@ for (let i = 0; i < SIZE; i++) {
     for (let j = 0; j < SIZE; j++) {
         var cell = document.createElement("div");
         cell.classList.add("cell");
-        cell.addEventListener("mouseenter", paintBlack);
+        cell.addEventListener("click", paintBlack);
+        cell.addEventListener("mouseenter", paintBlack2);
         column.appendChild(cell);
     }
 }
 
 function paintBlack(e) {
+    e.target.style.backgroundColor="black";
+}
+
+function paintBlack2(e) {
     if (isMouseDown) {
-        e.target.style.backgroundColor="black";
+        e.target.style.backgroundColor="black"
     }
 }
 
@@ -53,7 +60,8 @@ function resizeCanvas() {
             for (let j = 0; j < SIZE; j++) {
                 var cell = document.createElement("div");
                 cell.classList.add("cell");
-                cell.addEventListener("mouseover", paintBlack);
+                cell.addEventListener("click", paintBlack);
+                cell.addEventListener("mouseenter", paintBlack2);
                 column.appendChild(cell);
             }
         }
