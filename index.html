@@ -12,8 +12,21 @@
         <h1>Etch-a-sketch</h1>
         <div id="canvas"></div>
         <div id="options">
+            <div class="toggles">
+                <div class="rainbow">
+                    <label name="rainbow">Toggle rainbow</label>
+                    <input type="checkbox" id="rainbow" name="rainbow">
+                </div>
+                <div class="grid">
+                    <label name="grid">Toggle gridlines</label>
+                    <input type="checkbox" id="grid" name="grid">
+                </div>
+            </div>
+            <div class="resize">
+                <label name="resize">Canvas size (max: 64)</label>
+                <input type="number" id="resize" name="resize" min="1" max="64" value="16">
+            </div>
             <button id="reset">Reset</button>
-            <button id="resize">Resize canvas</button>
         </div>
     </body>
 </html>
