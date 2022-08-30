@@ -5,6 +5,7 @@ const reset = document.querySelector('#reset');
 const resize = document.querySelector('#resize');
 const rainbow = document.querySelector('#rainbow');
 const grid = document.querySelector('#grid');
+const color = document.querySelector('#color');
 
 document.body.onmousedown = function(e) {
     if (canvas.contains(e.target)) {
@@ -35,10 +36,11 @@ for (let i = 0; i < SIZE; i++) {
 
 function paintCanvas(e) {
     if (rainbow.checked) {
-        e.target.style.backgroundColor = "orange";
+        var randomColor = Math.floor(Math.random()*16777215).toString(16);
+            e.target.style.backgroundColor = '#' + randomColor;
     }
     else {
-        e.target.style.backgroundColor = "black";
+        e.target.style.backgroundColor = color.value;
     }
 }
 
@@ -49,7 +51,7 @@ function paintCanvas2(e) {
             e.target.style.backgroundColor = '#' + randomColor;
         }
         else {
-            e.target.style.backgroundColor = "black";
+            e.target.style.backgroundColor = color.value;
         }
     }
 }
